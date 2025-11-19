@@ -1,10 +1,10 @@
 import React from 'react'
 import { StyleSheet, Text, View } from 'react-native'
 
-export default function AdditionalScreen() {
+export default function SearchScreen() {
   return (
     <View style={styles.container}>
-      <Text>AdditionalScreen</Text>
+      <Text>SearchScreen</Text>
     </View>
   )
 }
