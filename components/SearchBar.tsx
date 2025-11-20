@@ -1,34 +1,24 @@
 import colors from '@/constants/colors'
-import { PlatformPressable } from '@react-navigation/elements'
 import React from 'react'
-import { StyleSheet, TextInput, View } from 'react-native'
+import { Pressable, StyleSheet, TextInput, View } from 'react-native'
 
 type Props = {
-  navigation: {
-    href: string | undefined,
-    accessibilityState: { selected: boolean } | {},
-    accessibilityLabel: string | undefined,
-    onPress: () => void,
-    testID: string | undefined,
-  },
+  onPress: () => void,
   placeholder: string,
 }
 
-export default function SearchBar({ navigation, placeholder }: Props) {
+export default function SearchBar({ onPress, placeholder }: Props) {
   return (
-    <PlatformPressable
-      style={styles.container}
-      {...navigation}
-    >
+    <Pressable onPress={onPress} style={styles.container}>
       <View style={styles.content}>
         <TextInput
           style={styles.input}
           placeholder={placeholder}
-          onPress={navigation.onPress}
+          onPress={onPress}
         />
         <View style={styles.icon} />
       </View>
-    </PlatformPressable>
+    </Pressable>
   )
 }
 
