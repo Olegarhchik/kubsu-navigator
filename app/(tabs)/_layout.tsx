@@ -1,45 +1,14 @@
-import TabBar from "@/components/TabBar";
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { SafeAreaView } from "react-native-safe-area-context";
-import SettingsScreen from "./(additional)/SettingsScreen";
-import TrackedScreen from "./(additional)/TrackedScreen";
-import HomeScreen from "./HomeScreen";
-import RouteScreen from "./RouteScreen";
-import SearchScreen from "./SearchScreen";
-import TimetableScreen from "./TimetableScreen";
-
-const Tab = createBottomTabNavigator();
+import { Stack } from "expo-router";
 
 export default function TabLayout() {
   return (
-    <SafeAreaView style={{ flex: 1 }}>
-      <Tab.Navigator
-        tabBar={(props) => <TabBar {...props} />}
-        screenOptions={{ headerShown: false }}
-      >
-        <Tab.Screen name="home--hidden" component={HomeScreen} />
-        <Tab.Screen name="search" component={SearchScreen} />
-        <Tab.Screen
-          name="route"
-          component={RouteScreen}
-          options={{ tabBarLabel: "Маршрут" }}
-        />
-        <Tab.Screen
-          name="timetable"
-          component={TimetableScreen}
-          options={{ tabBarLabel: "Расписание" }}
-        />
-        <Tab.Screen
-          name="tracked"
-          component={TrackedScreen}
-          options={{ tabBarLabel: "Отслеживаемое" }}
-        />
-        <Tab.Screen
-          name="settings"
-          component={SettingsScreen}
-          options={{ tabBarLabel: "Настройки" }}
-        />
-      </Tab.Navigator>
-    </SafeAreaView>
+    <Stack screenOptions={{ headerShown: false }}>
+      <Stack.Screen name="index" />
+      <Stack.Screen name="search" />
+      <Stack.Screen name="route" />
+      <Stack.Screen name="timetable" />
+      <Stack.Screen name="(additional)/tracked" />
+      <Stack.Screen name="(additional)/settings" />
+    </Stack>
   );
 }
