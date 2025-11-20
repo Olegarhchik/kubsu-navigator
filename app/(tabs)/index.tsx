@@ -35,7 +35,7 @@ export default function IndexScreen() {
 
 const styles = StyleSheet.create({
   container: {
-    paddingVertical: 40,
+    paddingVertical: 30,
     width: "100%",
     height: "100%",
     justifyContent: "space-between",

@@ -1,18 +1,13 @@
-import React from 'react'
-import { StyleSheet, Text, View } from 'react-native'
+import Modal from '@/components/Modal';
+import React from 'react';
+import { StyleSheet, Text } from 'react-native';
 
 export default function TimetableScreen() {
   return (
-    <View style={styles.container}>
+    <Modal>
       <Text>TimetableScreen</Text>
-    </View>
+    </Modal>
   )
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-  }
-})
+const styles = StyleSheet.create({})
