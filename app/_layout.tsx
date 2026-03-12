@@ -1,7 +1,8 @@
 import { Stack } from "expo-router";
+import React from "react";
 
 export default function RootLayout() {
-  const isLoggedIn = true;
+  const isLoggedIn = false;
 
   return (
     <Stack screenOptions={{ headerShown: false }}>
@@ -9,6 +10,7 @@ export default function RootLayout() {
         <Stack.Screen name="(tabs)" />
       </Stack.Protected>
       <Stack.Protected guard={!isLoggedIn}>
+        <Stack.Screen name="welcome" />
         <Stack.Screen name="sign-in" />
       </Stack.Protected>
     </Stack>

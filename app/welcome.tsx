@@ -1,9 +1,9 @@
 import React from 'react'
 import { StyleSheet, Text } from 'react-native'
 
-export default function RouteScreen() {
+export default function WelcomeScreen() {
   return (
-    <Text>RouteScreen</Text>
+    <Text>WelcomeScreen</Text>
   )
 }
 
