@@ -6,7 +6,10 @@ export default {
         header: 24,
         subHeader: 20,
         cardHeader: 18,
-        button: 14,
+        button: {
+            fontSize: 14,
+            fontWeight: "500" as const
+        },
         tiny: 12
     },
     [DEVICE.TABLET]: {
@@ -14,7 +17,10 @@ export default {
         header: 24,
         subHeader: 20,
         cardHeader: 18,
-        button: 14,
+        button: {
+            fontSize: 14,
+            fontWeight: "500" as const
+        },
         tiny: 12
     },
     [DEVICE.LAPTOP]: {
@@ -22,7 +28,10 @@ export default {
         header: 24,
         subHeader: 20,
         cardHeader: 18,
-        button: 14,
+        button: {
+            fontSize: 14,
+            fontWeight: "500" as const
+        },
         tiny: 12
     },
     [DEVICE.DESKTOP]: {
@@ -30,7 +39,10 @@ export default {
         header: 24,
         subHeader: 20,
         cardHeader: 18,
-        button: 14,
+        button: {
+            fontSize: 14,
+            fontWeight: "500" as const
+        },
         tiny: 12
     },
 }

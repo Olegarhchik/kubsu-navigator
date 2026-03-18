@@ -1,19 +1,23 @@
-import Loader from '@/components/Loader';
-import { useAuth } from '@/hooks/useAuth';
-import { useBootstrap } from '@/hooks/useBootstrap';
+import { useAuth, useTheme } from '@/hooks';
 import { Stack } from "expo-router";
+import { useEffect } from 'react';
+import { useColorScheme } from 'react-native';
 
 export default function RootLayout() {
-  const auth = useAuth(state => state.auth);
-  const isLoading = auth === undefined;
+  const auth = useAuth(state => state.auth)
+  const { setTheme } = useTheme()
+  const colorScheme = useColorScheme()
 
-  useBootstrap();
-
-  if (isLoading)
-    return <Loader />
+  useEffect(() => {
+    if (colorScheme)
+      setTheme(colorScheme)
+  }, [colorScheme])
 
   return (
-    <Stack screenOptions={{ headerShown: false }}>
+    <Stack screenOptions={{
+      headerShown: false,
+      statusBarStyle: "dark"
+    }}>
       <Stack.Protected guard={auth !== null}>
         <Stack.Screen
           name="(tabs)"

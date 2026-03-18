@@ -1,9 +1,9 @@
 import themeColors from '@/constants/themeColors';
-import { useTheme } from '@/hooks/useTheme';
+import { useTheme } from '@/hooks/useThemeStore';
 import { ActivityIndicator, StyleSheet, View } from 'react-native';
 
 export default function Loader() {
-    const theme = useTheme(state => state.theme);
+    const theme = useTheme(state => state.theme)
 
     return (
         <View style={[styles.container, { backgroundColor: themeColors[theme].primaryBg }]}>
