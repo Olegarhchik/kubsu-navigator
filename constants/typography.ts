@@ -2,8 +2,13 @@ import { DEVICE } from "./names"
 
 export default {
     [DEVICE.PHONE]: {
-        base: 16,
-        header: 24,
+        base: {
+            fontSize: 16
+        },
+        header: {
+            fontSize: 24,
+            fontWeight: "700" as const
+        },
         subHeader: 20,
         cardHeader: 18,
         button: {
@@ -13,8 +18,13 @@ export default {
         tiny: 12
     },
     [DEVICE.TABLET]: {
-        base: 16,
-        header: 24,
+        base: {
+            fontSize: 16
+        },
+        header: {
+            fontSize: 24,
+            fontWeight: "700" as const
+        },
         subHeader: 20,
         cardHeader: 18,
         button: {
@@ -22,27 +32,5 @@ export default {
             fontWeight: "500" as const
         },
         tiny: 12
-    },
-    [DEVICE.LAPTOP]: {
-        base: 16,
-        header: 24,
-        subHeader: 20,
-        cardHeader: 18,
-        button: {
-            fontSize: 14,
-            fontWeight: "500" as const
-        },
-        tiny: 12
-    },
-    [DEVICE.DESKTOP]: {
-        base: 16,
-        header: 24,
-        subHeader: 20,
-        cardHeader: 18,
-        button: {
-            fontSize: 14,
-            fontWeight: "500" as const
-        },
-        tiny: 12
-    },
+    }
 }

@@ -1,4 +1,4 @@
-import themeColors from '@/constants/themeColors'
+import colors from '@/constants/colors'
 import typography from '@/constants/typography'
 import { useDevice, useTheme } from '@/hooks'
 import { Href, useRouter } from 'expo-router'
@@ -16,11 +16,11 @@ export default function Button({ href, text }: ButtonType) {
 
     const dynamicStyles = StyleSheet.create({
         button: {
-            backgroundColor: themeColors[theme].button.bg
+            backgroundColor: colors[theme].button.bg
         },
         text: {
             ...typography[device].button,
-            color: themeColors[theme].button.activeColor
+            color: colors[theme].button.active
         }
     })
 

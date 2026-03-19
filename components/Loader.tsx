@@ -1,4 +1,4 @@
-import themeColors from '@/constants/themeColors';
+import themeColors from '@/constants/colors';
 import { useTheme } from '@/hooks/useThemeStore';
 import { ActivityIndicator, StyleSheet, View } from 'react-native';
 

@@ -1,5 +1,5 @@
 import Button from '@/components/Button';
-import themeColors from '@/constants/themeColors';
+import colors from '@/constants/colors';
 import typography from '@/constants/typography';
 import { useDevice, useTheme } from '@/hooks';
 import { StyleSheet, Text } from 'react-native';
@@ -11,14 +11,15 @@ export default function WelcomeScreen() {
 
   const dynamicStyles = StyleSheet.create({
     container: {
-      backgroundColor: themeColors[theme].primaryBg
+      backgroundColor: colors[theme].primaryBg
     },
     header: {
-      color: themeColors[theme].color,
+      ...typography[device].header,
+      color: colors[theme].main
     },
     text: {
-      color: themeColors[theme].color,
-      fontSize: typography[device].base
+      ...typography[device].base,
+      color: colors[theme].main
     }
   })
 
@@ -37,11 +38,10 @@ const staticStyles = StyleSheet.create({
     justifyContent: "space-between",
     alignItems: "center",
     paddingVertical: 150,
-    paddingHorizontal: 50,
+    paddingHorizontal: 50
   },
   header: {
-    fontSize: 36,
-    fontWeight: 700,
     textAlign: "center",
+    fontSize: 36
   }
 })

@@ -29,6 +29,9 @@ export default function RootLayout() {
         />
         <Stack.Screen
           name="sign-in"
+          options={{
+            animationTypeForReplace: "push"
+          }}
         />
       </Stack.Protected>
     </Stack>
