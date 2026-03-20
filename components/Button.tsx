@@ -1,37 +1,38 @@
-import colors from '@/constants/colors'
-import typography from '@/constants/typography'
-import { useDevice, useTheme } from '@/hooks'
+import { colors } from '@/constants'
+import { useTheme } from '@/hooks'
 import { Href, useRouter } from 'expo-router'
-import { StyleSheet, Text, TouchableOpacity } from 'react-native'
+import { PropsWithChildren } from 'react'
+import { StyleSheet, TouchableOpacity } from 'react-native'
 
 type ButtonType = {
-    href: Href,
-    text: string
+    type: "primary" | "secondary" | "underline",
+    href?: Href,
+    onPress?: () => void
 }
 
-export default function Button({ href, text }: ButtonType) {
+export function Button({ type, href, onPress, children }: PropsWithChildren<ButtonType>) {
     const { theme } = useTheme()
-    const device = useDevice()
     const router = useRouter()
 
     const dynamicStyles = StyleSheet.create({
-        button: {
+        primary: {
+            ...staticStyles.button,
             backgroundColor: colors[theme].button.bg
         },
-        text: {
-            ...typography[device].button,
-            color: colors[theme].button.active
-        }
+        secondary: {
+            ...staticStyles.button,
+            borderWidth: 2,
+            borderColor: colors[theme].button.bg
+        },
+        underline: {}
     })
 
     return (
         <TouchableOpacity
-            onPress={() => {
-                router.push(href)
-            }}
-            style={[dynamicStyles.button, staticStyles.button]}
+            onPress={onPress ?? (() => router.push(href!))}
+            style={dynamicStyles[type]}
         >
-            <Text style={[dynamicStyles.text, staticStyles.text]}>{text}</Text>
+            {children}
         </TouchableOpacity>
     )
 }
@@ -40,9 +41,7 @@ const staticStyles = StyleSheet.create({
     button: {
         paddingVertical: 10,
         paddingHorizontal: 30,
-        borderRadius: 20
-    },
-    text: {
-        fontFamily: "Roboto"
+        borderRadius: 20,
+        alignItems: "center"
     }
 })

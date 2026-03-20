@@ -1,6 +1,6 @@
 import { DEVICE } from "./names"
 
-export default {
+export const typography = {
     [DEVICE.PHONE]: {
         base: {
             fontSize: 16

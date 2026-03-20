@@ -1,6 +1,6 @@
 import { THEME } from "./names"
 
-export default {
+export const colors = {
     [THEME.LIGHT]: {
         primaryBg: "#F8F8F8",
         secondaryBg: "#E6E6E6",

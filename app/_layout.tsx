@@ -4,7 +4,7 @@ import { useEffect } from 'react';
 import { useColorScheme } from 'react-native';
 
 export default function RootLayout() {
-  const auth = useAuth(state => state.auth)
+  const { auth } = useAuth()
   const { setTheme } = useTheme()
   const colorScheme = useColorScheme()
 

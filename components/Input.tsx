@@ -1,5 +1,4 @@
-import colors from '@/constants/colors'
-import typography from '@/constants/typography'
+import { colors, typography } from '@/constants'
 import { useDevice, useTheme } from '@/hooks'
 import { ReturnKeyTypeOptions, StyleSheet, TextInput, View } from 'react-native'
 
@@ -9,13 +8,15 @@ type InputType = {
         returnKeyType: ReturnKeyTypeOptions,
         autoFocus?: boolean,
         secureTextEntry?: boolean,
+        blurOnSubmit?: boolean,
         ref?: React.Ref<TextInput>
+        onSubmitEditing?: () => void
+        onChangeText?: (text: string) => void
     },
     icon: (color: string) => React.ReactElement,
-    handler?: () => void
 }
 
-export default function Input({ props, icon, handler }: InputType) {
+export function Input({ props, icon }: InputType) {
     const { theme } = useTheme()
     const device = useDevice()
 
@@ -40,7 +41,6 @@ export default function Input({ props, icon, handler }: InputType) {
                     style={[dynamicStyles.input, staticStyles.input]}
                     placeholderTextColor={colors[theme].textInput.placeholder}
                     autoComplete="off"
-                    onSubmitEditing={handler && (() => handler())}
                     {...props}
                 />
             </View>
@@ -63,6 +63,7 @@ const staticStyles = StyleSheet.create({
     },
     input: {
         paddingVertical: 10,
-        flex: 1
+        flex: 1,
+        fontFamily: "Roboto"
     }
 })
